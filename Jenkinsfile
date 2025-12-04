@@ -15,6 +15,7 @@ pipeline
         {
             steps{
                 echo 'push images to docker hub'
+                bat 'docker login -u siri2409 -p AnjaliYash@2409'
                 bat 'docker tag exampyapp:v1 siri2409/exampy:exampyimg'
                 bat 'docker push siri2409/exampy:exampyimg'
             }
