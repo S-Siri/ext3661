@@ -15,8 +15,8 @@ pipeline
         {
             steps{
                 echo 'push images to docker hub'
-                bat 'docker tag exampyapp:v1 siri2409/exampy:v1'
-                bat 'docker push siri2409/exampy:v1'
+                bat 'docker tag exampyapp:v1 siri2409/exampy:exampyimg'
+                bat 'docker push siri2409/exampy:exampyimg'
             }
         }
         stage('Containerize and Run') 
@@ -24,8 +24,8 @@ pipeline
             steps 
             {
                 echo "Containerize and Run"
-                bat "docker pull siri2409/exampy:v1"
-                bat "docker run -d -p 5000:5000 siri2409/exampy:v1"
+                bat "docker pull siri2409/exampy:exampyimg"
+                bat "docker run -d -p 5000:5000 siri2409/exampy:exampyimg"
             }
         }
     }
